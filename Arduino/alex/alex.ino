@@ -3,7 +3,8 @@
   #include <Ethernet.h>
   #include <MySQL_Connection.h>
   #include <MySQL_Cursor.h>
-  byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xED, 0xFE };
+  byte mac_addr[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xDE };
+  //ED
   IPAddress server_addr(189,14,200,70);
   char user[] = "grupo8";
   char password[] = "1YHXU0EHqt";
@@ -38,10 +39,12 @@ void setup()
   Ethernet.begin(mac_addr);
   lcd.print("Conectando...");
   if (conn.connect(server_addr, 3306, user, password)) {
-    lcd.print("Pronto!");
     delay(1000);
+    lcd.clear();
+    lcd.print("Pronto!");
       }
   else
+  lcd.clear();
   lcd.print("Falhou.");    
 }
 
